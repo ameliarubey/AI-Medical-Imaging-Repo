@@ -1,6 +1,9 @@
 # Virtual environment
 venv/
-.env/
+
+# Environment variables / secrets
+.env
+.env.*
 
 # Python cache
 __pycache__/
@@ -11,3 +14,9 @@ __pycache__/
 
 # OS files
 .DS_Store
+
+# Temporary image generated during analysis
+temp_resized_image.png
+
+# Local test image
+Chest_X-Ray.jpg
