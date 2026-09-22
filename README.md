@@ -1,66 +1,172 @@
 # 🩻 Medical Imaging Diagnosis Agent
 
-A Medical Imaging Diagnosis Agent build on agno powered by Gemini 2.0 Flash that provides AI-assisted analysis of medical images of various scans. The agent acts as a medical imaging diagnosis expert to analyze various types of medical images and videos, providing detailed diagnostic insights and explanations.
+A Medical Imaging Diagnosis Agent built with Python, Streamlit, and Google Gemini that provides AI-assisted analysis of medical images. The agent uses Gemini's multimodal capabilities to analyze uploaded medical images and provide structured observations, diagnostic context, and patient-friendly explanations.
 
-## Features
 
-- **Comprehensive Image Analysis**
-  - Image Type Identification (X-ray, MRI, CT scan, ultrasound)
-  - Anatomical Region Detection
-  - Key Findings and Observations
-  - Potential Abnormalities Detection
-  - Image Quality Assessment
-  - Research and Reference
+## 🚀 Getting Started
 
-## How to Run
+### Prerequisites
 
-1. **Setup Environment**
-   ```bash
-   # Clone the repository
-   git clone https://github.com/<your-username>/AI-Medical-Imaging-Repo.git
-  cd AI-Medical-Imaging-Repo
+- Python 3.11
+- A Google Gemini API key
+- Internet connection
 
-   # Install dependencies
-   pip install -r requirements.txt
-   ```
 
-2. **Configure API Keys**
-   - Get Google API key from [Google AI Studio](https://aistudio.google.com)
+### 1. Clone the Repository
 
-3. **Run the Application**
-   ```bash
-   streamlit run ai_medical_imaging.py
-   ```
+```bash
+git clone https://github.com/ameliarubey/AI-Medical-Imaging-Repo.git
 
-## Analysis Components
+cd AI-Medical-Imaging-Repo
+```
 
-- **Image Type and Region**
-  - Identifies imaging modality
-  - Specifies anatomical region
 
-- **Key Findings**
-  - Systematic listing of observations
-  - Detailed appearance descriptions
-  - Abnormality highlighting
+### 2. Create a Virtual Environment
 
-- **Diagnostic Assessment**
-  - Potential diagnoses ranking
-  - Differential diagnoses
-  - Severity assessment
+```bash
+python3.11 -m venv venv
+```
 
-- **Patient-Friendly Explanations**
-  - Simplified terminology
-  - Detailed first-principles explanations
-  - Visual reference points
+Activate it on macOS/Linux:
 
-## Notes
+```bash
+source venv/bin/activate
+```
 
-- Uses Gemini 2.0 Flash for analysis
-- Requires stable internet connection
-- Free API usage costs -  1,500 free requests per day by google!
-- For educational and development purposes only
-- Not a replacement for professional medical diagnosis
 
-## Disclaimer
+### 3. Install Dependencies
 
-This tool is for educational and informational purposes only. All analyses should be reviewed by qualified healthcare professionals. Do not make medical decisions based solely on this analysis.
+```bash
+pip install -r requirements.txt
+```
+
+
+### 4. Run the Application
+
+```bash
+streamlit run ai_medical_imaging.py
+```
+
+The application will open locally at:
+
+`http://localhost:8501`
+
+
+## ✨ Features
+
+### Comprehensive Image Analysis
+
+- Image Type Identification (X-ray, MRI, CT scan, ultrasound)
+- Anatomical Region Detection
+- Key Findings and Observations
+- Potential Abnormalities Detection
+- Image Quality Assessment
+- Patient-Friendly Explanations
+
+
+## 🔑 API Key Setup
+
+The application requires a Google Gemini API key.
+
+1. Create an API key through Google AI Studio.
+2. Start the Streamlit application.
+3. Enter the API key in the sidebar.
+4. Upload a medical image.
+5. Select **Analyze Image**.
+
+The API key is entered at runtime and is not hardcoded into the source code.
+
+> **Security:** Never commit API keys, passwords, or other credentials to GitHub.
+
+
+## 📂 Project Structure
+
+```text
+AI-Medical-Imaging-Repo/
+│
+├── ai_medical_imaging.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+└── venv/
+```
+
+The `venv/` directory is excluded from version control through `.gitignore`.
+
+
+## ⚙️ How It Works
+
+1. The user uploads a medical image through the Streamlit interface.
+
+2. Pillow loads and preprocesses the image.
+
+3. The application converts the processed image into PNG bytes.
+
+4. The Google GenAI SDK sends the image and analysis prompt to Gemini.
+
+5. Gemini performs multimodal image understanding.
+
+6. The generated response is displayed as structured analysis in the Streamlit interface.
+
+
+## 🧠 Analysis Workflow
+
+The application asks Gemini to organize its response into several sections.
+
+
+### Image Type & Region
+
+Identifies the imaging modality, anatomical region, positioning, and image quality.
+
+
+### Key Findings
+
+Summarizes visible structures and potential abnormalities based on the supplied image.
+
+
+### Diagnostic Assessment
+
+Provides an AI-generated assessment and identifies potentially relevant findings.
+
+
+### Patient-Friendly Explanation
+
+Translates the analysis into simpler language.
+
+
+### Clinical Context
+
+Provides general contextual information while distinguishing it from direct observations.
+
+
+## ⚠️ Limitations
+
+- AI-generated medical-image interpretations can contain errors.
+- The application does not replace a qualified radiologist or healthcare professional.
+- Results should not be used as the sole basis for medical decisions.
+- The current implementation performs basic image preprocessing and resizing.
+- Image resolution may be reduced during preprocessing.
+- The application is intended as an educational software project rather than a clinical diagnostic system.
+
+
+## 🔮 Future Improvements
+
+- DICOM-specific image handling and metadata processing
+- Improved preservation of diagnostic image resolution
+- More robust API error handling and retry mechanisms
+- Secure environment-variable based API configuration
+- Automated unit and integration testing
+- Support for additional medical imaging workflows
+- Optional integration with verified medical literature sources
+- Improved accessibility and user experience
+
+## 📸 Project Preview
+
+Application screenshots are available in the [`screenshots/`](screenshots/) folder.
+
+## 👩‍💻 Author
+
+**Amelia Rubey**
+
+B.Tech Information Technology  
+IIIT Allahabad
